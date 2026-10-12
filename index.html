@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenPDF Studio</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="toolbar" id="toolbar">
+        <div class="toolbar__group">
+          <span class="brand">OpenPDF&nbsp;Studio</span>
+        </div>
+        <div class="toolbar__group">
+          <button data-action="open" title="Open a PDF">Open</button>
+          <button data-action="save" title="Download the edited PDF" disabled>Save</button>
+        </div>
+        <div class="toolbar__group toolbar__group--view">
+          <button data-action="prev" title="Previous page" disabled>‹</button>
+          <span class="page-indicator"><input id="page-input" type="number" min="1" value="0" disabled /> / <span id="page-count">0</span></span>
+          <button data-action="next" title="Next page" disabled>›</button>
+          <button data-action="zoom-out" title="Zoom out" disabled>−</button>
+          <span id="zoom-level">100%</span>
+          <button data-action="zoom-in" title="Zoom in" disabled>+</button>
+        </div>
+        <div class="toolbar__group toolbar__group--tools">
+          <button data-tool="select" class="is-active" title="Select / pan" disabled>Select</button>
+          <button data-tool="highlight" title="Highlight text" disabled>Highlight</button>
+          <button data-tool="draw" title="Freehand draw" disabled>Draw</button>
+          <button data-tool="note" title="Add a sticky note" disabled>Note</button>
+          <button data-tool="text" title="Add a text box" disabled>Text</button>
+        </div>
+        <div class="toolbar__group toolbar__group--pages">
+          <button data-action="rotate" title="Rotate current page" disabled>Rotate</button>
+          <button data-action="delete-page" title="Delete current page" disabled>Delete page</button>
+        </div>
+        <div class="toolbar__group toolbar__group--search">
+          <input id="search-input" type="search" placeholder="Search text…" disabled />
+          <button data-action="search-prev" title="Previous match" disabled>▲</button>
+          <button data-action="search-next" title="Next match" disabled>▼</button>
+          <span id="search-status"></span>
+        </div>
+      </header>
+      <aside class="sidebar" id="thumbnails" aria-label="Page thumbnails"></aside>
+      <main class="viewer" id="viewer">
+        <div class="empty-state" id="empty-state">
+          <h1>OpenPDF Studio</h1>
+          <p>Open a PDF to view, annotate and edit it.</p>
+          <button data-action="open" class="empty-state__cta">Open a PDF</button>
+        </div>
+        <div class="pages" id="pages"></div>
+      </main>
+    </div>
+    <input id="file-input" type="file" accept="application/pdf,.pdf" hidden />
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
