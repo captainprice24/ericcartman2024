@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  // Relative base so the built app works when served from any path
+  // (e.g. a hosted artifact URL), not just the domain root.
+  base: './',
   server: {
     port: 5173,
     host: true,
